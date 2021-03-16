@@ -18,7 +18,7 @@ public class Rect2d {
     }
 
     public Rect2d(Point p1, Point p2) {
-        x = (Math.min(p1.x, p2.x));
+        x = Math.min(p1.x, p2.x);
         y = (Math.min(p1.y, p2.y));
         width = (Math.max(p1.x, p2.x)) - x;
         height = (Math.max(p1.y, p2.y)) - y;

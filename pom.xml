@@ -12,6 +12,6 @@
 
     <groupId>org.opencv</groupId>
     <artifactId>opencv-java</artifactId>
-    <version>3.4.12-release</version>
+    <version>4.4.0-release</version>
 
 </project>

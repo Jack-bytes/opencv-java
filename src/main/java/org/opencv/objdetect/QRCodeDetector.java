@@ -45,77 +45,7 @@ public class QRCodeDetector {
 
 
     //
-    // C++:  String cv::QRCodeDetector::decode(Mat img, Mat points, Mat& straight_qrcode = Mat())
-    //
-
-    /**
-     * Decodes QR code in image once it's found by the detect() method.
-     * <p>
-     * Returns UTF8-encoded output string or empty string if the code cannot be decoded.
-     *
-     * @param img             grayscale or color (BGR) image containing QR code.
-     * @param points          Quadrangle vertices found by detect() method (or some other algorithm).
-     * @param straight_qrcode The optional output image containing rectified and binarized QR code
-     * @return automatically generated
-     */
-    public String decode(Mat img, Mat points, Mat straight_qrcode) {
-        return decode_0(nativeObj, img.nativeObj, points.nativeObj, straight_qrcode.nativeObj);
-    }
-
-    /**
-     * Decodes QR code in image once it's found by the detect() method.
-     * <p>
-     * Returns UTF8-encoded output string or empty string if the code cannot be decoded.
-     *
-     * @param img    grayscale or color (BGR) image containing QR code.
-     * @param points Quadrangle vertices found by detect() method (or some other algorithm).
-     * @return automatically generated
-     */
-    public String decode(Mat img, Mat points) {
-        return decode_1(nativeObj, img.nativeObj, points.nativeObj);
-    }
-
-
-    //
-    // C++:  String cv::QRCodeDetector::detectAndDecode(Mat img, Mat& points = Mat(), Mat& straight_qrcode = Mat())
-    //
-
-    /**
-     * Both detects and decodes QR code
-     *
-     * @param img             grayscale or color (BGR) image containing QR code.
-     * @param points          optional output array of vertices of the found QR code quadrangle. Will be empty if not found.
-     * @param straight_qrcode The optional output image containing rectified and binarized QR code
-     * @return automatically generated
-     */
-    public String detectAndDecode(Mat img, Mat points, Mat straight_qrcode) {
-        return detectAndDecode_0(nativeObj, img.nativeObj, points.nativeObj, straight_qrcode.nativeObj);
-    }
-
-    /**
-     * Both detects and decodes QR code
-     *
-     * @param img    grayscale or color (BGR) image containing QR code.
-     * @param points optional output array of vertices of the found QR code quadrangle. Will be empty if not found.
-     * @return automatically generated
-     */
-    public String detectAndDecode(Mat img, Mat points) {
-        return detectAndDecode_1(nativeObj, img.nativeObj, points.nativeObj);
-    }
-
-    /**
-     * Both detects and decodes QR code
-     *
-     * @param img grayscale or color (BGR) image containing QR code.
-     * @return automatically generated
-     */
-    public String detectAndDecode(Mat img) {
-        return detectAndDecode_2(nativeObj, img.nativeObj);
-    }
-
-
-    //
-    // C++:  bool cv::QRCodeDetector::decodeMulti(Mat img, Mat points, vector_String& decoded_info, vector_Mat& straight_qrcode = vector_Mat())
+    // C++:  bool cv::QRCodeDetector::decodeMulti(Mat img, Mat points, vector_string& decoded_info, vector_Mat& straight_qrcode = vector_Mat())
     //
 
     /**
@@ -165,7 +95,7 @@ public class QRCodeDetector {
 
 
     //
-    // C++:  bool cv::QRCodeDetector::detectAndDecodeMulti(Mat img, vector_String& decoded_info, Mat& points = Mat(), vector_Mat& straight_qrcode = vector_Mat())
+    // C++:  bool cv::QRCodeDetector::detectAndDecodeMulti(Mat img, vector_string& decoded_info, Mat& points = Mat(), vector_Mat& straight_qrcode = vector_Mat())
     //
 
     /**
@@ -226,6 +156,76 @@ public class QRCodeDetector {
 
 
     //
+    // C++:  string cv::QRCodeDetector::decode(Mat img, Mat points, Mat& straight_qrcode = Mat())
+    //
+
+    /**
+     * Decodes QR code in image once it's found by the detect() method.
+     * <p>
+     * Returns UTF8-encoded output string or empty string if the code cannot be decoded.
+     *
+     * @param img             grayscale or color (BGR) image containing QR code.
+     * @param points          Quadrangle vertices found by detect() method (or some other algorithm).
+     * @param straight_qrcode The optional output image containing rectified and binarized QR code
+     * @return automatically generated
+     */
+    public String decode(Mat img, Mat points, Mat straight_qrcode) {
+        return decode_0(nativeObj, img.nativeObj, points.nativeObj, straight_qrcode.nativeObj);
+    }
+
+    /**
+     * Decodes QR code in image once it's found by the detect() method.
+     * <p>
+     * Returns UTF8-encoded output string or empty string if the code cannot be decoded.
+     *
+     * @param img    grayscale or color (BGR) image containing QR code.
+     * @param points Quadrangle vertices found by detect() method (or some other algorithm).
+     * @return automatically generated
+     */
+    public String decode(Mat img, Mat points) {
+        return decode_1(nativeObj, img.nativeObj, points.nativeObj);
+    }
+
+
+    //
+    // C++:  string cv::QRCodeDetector::detectAndDecode(Mat img, Mat& points = Mat(), Mat& straight_qrcode = Mat())
+    //
+
+    /**
+     * Both detects and decodes QR code
+     *
+     * @param img             grayscale or color (BGR) image containing QR code.
+     * @param points          optional output array of vertices of the found QR code quadrangle. Will be empty if not found.
+     * @param straight_qrcode The optional output image containing rectified and binarized QR code
+     * @return automatically generated
+     */
+    public String detectAndDecode(Mat img, Mat points, Mat straight_qrcode) {
+        return detectAndDecode_0(nativeObj, img.nativeObj, points.nativeObj, straight_qrcode.nativeObj);
+    }
+
+    /**
+     * Both detects and decodes QR code
+     *
+     * @param img    grayscale or color (BGR) image containing QR code.
+     * @param points optional output array of vertices of the found QR code quadrangle. Will be empty if not found.
+     * @return automatically generated
+     */
+    public String detectAndDecode(Mat img, Mat points) {
+        return detectAndDecode_1(nativeObj, img.nativeObj, points.nativeObj);
+    }
+
+    /**
+     * Both detects and decodes QR code
+     *
+     * @param img grayscale or color (BGR) image containing QR code.
+     * @return automatically generated
+     */
+    public String detectAndDecode(Mat img) {
+        return detectAndDecode_2(nativeObj, img.nativeObj);
+    }
+
+
+    //
     // C++:  void cv::QRCodeDetector::setEpsX(double epsX)
     //
 
@@ -264,19 +264,7 @@ public class QRCodeDetector {
     // C++:   cv::QRCodeDetector::QRCodeDetector()
     private static native long QRCodeDetector_0();
 
-    // C++:  String cv::QRCodeDetector::decode(Mat img, Mat points, Mat& straight_qrcode = Mat())
-    private static native String decode_0(long nativeObj, long img_nativeObj, long points_nativeObj, long straight_qrcode_nativeObj);
-
-    private static native String decode_1(long nativeObj, long img_nativeObj, long points_nativeObj);
-
-    // C++:  String cv::QRCodeDetector::detectAndDecode(Mat img, Mat& points = Mat(), Mat& straight_qrcode = Mat())
-    private static native String detectAndDecode_0(long nativeObj, long img_nativeObj, long points_nativeObj, long straight_qrcode_nativeObj);
-
-    private static native String detectAndDecode_1(long nativeObj, long img_nativeObj, long points_nativeObj);
-
-    private static native String detectAndDecode_2(long nativeObj, long img_nativeObj);
-
-    // C++:  bool cv::QRCodeDetector::decodeMulti(Mat img, Mat points, vector_String& decoded_info, vector_Mat& straight_qrcode = vector_Mat())
+    // C++:  bool cv::QRCodeDetector::decodeMulti(Mat img, Mat points, vector_string& decoded_info, vector_Mat& straight_qrcode = vector_Mat())
     private static native boolean decodeMulti_0(long nativeObj, long img_nativeObj, long points_nativeObj, List<String> decoded_info, long straight_qrcode_mat_nativeObj);
 
     private static native boolean decodeMulti_1(long nativeObj, long img_nativeObj, long points_nativeObj, List<String> decoded_info);
@@ -284,7 +272,7 @@ public class QRCodeDetector {
     // C++:  bool cv::QRCodeDetector::detect(Mat img, Mat& points)
     private static native boolean detect_0(long nativeObj, long img_nativeObj, long points_nativeObj);
 
-    // C++:  bool cv::QRCodeDetector::detectAndDecodeMulti(Mat img, vector_String& decoded_info, Mat& points = Mat(), vector_Mat& straight_qrcode = vector_Mat())
+    // C++:  bool cv::QRCodeDetector::detectAndDecodeMulti(Mat img, vector_string& decoded_info, Mat& points = Mat(), vector_Mat& straight_qrcode = vector_Mat())
     private static native boolean detectAndDecodeMulti_0(long nativeObj, long img_nativeObj, List<String> decoded_info, long points_nativeObj, long straight_qrcode_mat_nativeObj);
 
     private static native boolean detectAndDecodeMulti_1(long nativeObj, long img_nativeObj, List<String> decoded_info, long points_nativeObj);
@@ -293,6 +281,18 @@ public class QRCodeDetector {
 
     // C++:  bool cv::QRCodeDetector::detectMulti(Mat img, Mat& points)
     private static native boolean detectMulti_0(long nativeObj, long img_nativeObj, long points_nativeObj);
+
+    // C++:  string cv::QRCodeDetector::decode(Mat img, Mat points, Mat& straight_qrcode = Mat())
+    private static native String decode_0(long nativeObj, long img_nativeObj, long points_nativeObj, long straight_qrcode_nativeObj);
+
+    private static native String decode_1(long nativeObj, long img_nativeObj, long points_nativeObj);
+
+    // C++:  string cv::QRCodeDetector::detectAndDecode(Mat img, Mat& points = Mat(), Mat& straight_qrcode = Mat())
+    private static native String detectAndDecode_0(long nativeObj, long img_nativeObj, long points_nativeObj, long straight_qrcode_nativeObj);
+
+    private static native String detectAndDecode_1(long nativeObj, long img_nativeObj, long points_nativeObj);
+
+    private static native String detectAndDecode_2(long nativeObj, long img_nativeObj);
 
     // C++:  void cv::QRCodeDetector::setEpsX(double epsX)
     private static native void setEpsX_0(long nativeObj, double epsX);

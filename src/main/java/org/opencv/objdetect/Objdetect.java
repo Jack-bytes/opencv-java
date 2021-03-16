@@ -17,6 +17,7 @@ public class Objdetect {
             DetectionBasedTracker_DETECTED_TEMPORARY_LOST = 2,
             DetectionBasedTracker_WRONG_OBJECT = 3;
 
+
     // C++: enum <unnamed>
     public static final int
             CASCADE_DO_CANNY_PRUNING = 1,

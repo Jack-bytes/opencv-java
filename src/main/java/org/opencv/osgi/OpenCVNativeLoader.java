@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class OpenCVNativeLoader implements OpenCVInterface {
 
     public void init() {
-        System.loadLibrary("opencv_java3412");
+        System.loadLibrary("opencv_java440");
         Logger.getLogger("org.opencv.osgi").log(Level.INFO, "Successfully loaded OpenCV native library.");
     }
 }

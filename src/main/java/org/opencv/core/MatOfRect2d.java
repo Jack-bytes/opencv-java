@@ -55,7 +55,7 @@ public class MatOfRect2d extends Mat {
             Rect2d r = a[i];
             buff[_channels * i] = r.x;
             buff[_channels * i + 1] = r.y;
-            buff[_channels * i + 2] =  r.width;
+            buff[_channels * i + 2] = r.width;
             buff[_channels * i + 3] = r.height;
         }
         put(0, 0, buff); //TODO: check ret val!

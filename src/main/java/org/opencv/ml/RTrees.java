@@ -120,21 +120,6 @@ public class RTrees extends DTrees {
 
 
     //
-    // C++:  double cv::ml::RTrees::getOOBError()
-    //
-
-    /**
-     * Returns the OOB error value, computed at the training stage when calcOOBError is set to true.
-     * If this flag was set to false, 0 is returned. The OOB error is also scaled by sample weighting.
-     *
-     * @return automatically generated
-     */
-    public double getOOBError() {
-        return getOOBError_0(nativeObj);
-    }
-
-
-    //
     // C++:  int cv::ml::RTrees::getActiveVarCount()
     //
 
@@ -232,9 +217,6 @@ public class RTrees extends DTrees {
 
     // C++:  bool cv::ml::RTrees::getCalculateVarImportance()
     private static native boolean getCalculateVarImportance_0(long nativeObj);
-
-    // C++:  double cv::ml::RTrees::getOOBError()
-    private static native double getOOBError_0(long nativeObj);
 
     // C++:  int cv::ml::RTrees::getActiveVarCount()
     private static native int getActiveVarCount_0(long nativeObj);

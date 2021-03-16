@@ -488,6 +488,7 @@ public class Subdiv2D {
         insert_1(nativeObj, ptvec.nativeObj);
     }
 
+
     @Override
     protected void finalize() throws Throwable {
         delete(nativeObj);

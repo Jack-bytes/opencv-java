@@ -3,7 +3,6 @@
 //
 package org.opencv.features2d;
 
-
 // C++: class Params
 @SuppressWarnings("unused")
 public class Params {

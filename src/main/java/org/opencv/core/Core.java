@@ -12,15 +12,15 @@ import org.opencv.utils.Converters;
 public class Core {
     // these constants are wrapped inside functions to prevent inlining
     private static String getVersion() {
-        return "3.4.12";
+        return "4.4.0";
     }
 
     private static String getNativeLibraryName() {
-        return "opencv_java3412";
+        return "opencv_java440";
     }
 
     private static int getVersionMajorJ() {
-        return 3;
+        return 4;
     }
 
     private static int getVersionMinorJ() {
@@ -28,7 +28,7 @@ public class Core {
     }
 
     private static int getVersionRevisionJ() {
-        return 12;
+        return 0;
     }
 
     private static String getVersionStatusJ() {
@@ -63,26 +63,6 @@ public class Core {
             DECOMP_NORMAL = 16;
 
 
-    // C++: enum HersheyFonts
-    public static final int
-            FONT_HERSHEY_SIMPLEX = 0,
-            FONT_HERSHEY_PLAIN = 1,
-            FONT_HERSHEY_DUPLEX = 2,
-            FONT_HERSHEY_COMPLEX = 3,
-            FONT_HERSHEY_TRIPLEX = 4,
-            FONT_HERSHEY_COMPLEX_SMALL = 5,
-            FONT_HERSHEY_SCRIPT_SIMPLEX = 6,
-            FONT_HERSHEY_SCRIPT_COMPLEX = 7,
-            FONT_ITALIC = 16;
-
-
-    // C++: enum LineTypes
-    public static final int
-            LINE_4 = 4,
-            LINE_8 = 8,
-            LINE_AA = 16;
-
-
     // C++: enum BorderTypes
     public static final int
             BORDER_CONSTANT = 0,
@@ -91,8 +71,8 @@ public class Core {
             BORDER_WRAP = 3,
             BORDER_REFLECT_101 = 4,
             BORDER_TRANSPARENT = 5,
-            BORDER_REFLECT101 = 4,
-            BORDER_DEFAULT = 4,
+            BORDER_REFLECT101 = BORDER_REFLECT_101,
+            BORDER_DEFAULT = BORDER_REFLECT_101,
             BORDER_ISOLATED = 16;
 
 
@@ -113,27 +93,8 @@ public class Core {
             REDUCE_AVG = 1,
             REDUCE_MAX = 2,
             REDUCE_MIN = 3,
-            Hamming_normType = 6,
             RNG_UNIFORM = 0,
-            RNG_NORMAL = 1,
-            Formatter_FMT_DEFAULT = 0,
-            Formatter_FMT_MATLAB = 1,
-            Formatter_FMT_CSV = 2,
-            Formatter_FMT_PYTHON = 3,
-            Formatter_FMT_NUMPY = 4,
-            Formatter_FMT_C = 5,
-            Param_INT = 0,
-            Param_BOOLEAN = 1,
-            Param_REAL = 2,
-            Param_STRING = 3,
-            Param_MAT = 4,
-            Param_MAT_VECTOR = 5,
-            Param_ALGORITHM = 6,
-            Param_FLOAT = 7,
-            Param_UNSIGNED_INT = 8,
-            Param_UINT64 = 9,
-            Param_UCHAR = 11,
-            Param_SCALAR = 12;
+            RNG_NORMAL = 1;
 
 
     // C++: enum CmpTypes
@@ -161,8 +122,8 @@ public class Core {
             DFT_COMPLEX_OUTPUT = 16,
             DFT_REAL_OUTPUT = 32,
             DFT_COMPLEX_INPUT = 64,
-            DCT_INVERSE = 1,
-            DCT_ROWS = 4;
+            DCT_INVERSE = DFT_INVERSE,
+            DCT_ROWS = DFT_ROWS;
 
 
     // C++: enum CovarFlags
@@ -188,6 +149,32 @@ public class Core {
             SORT_EVERY_COLUMN = 1,
             SORT_ASCENDING = 0,
             SORT_DESCENDING = 16;
+
+
+    // C++: enum FormatType
+    public static final int
+            Formatter_FMT_DEFAULT = 0,
+            Formatter_FMT_MATLAB = 1,
+            Formatter_FMT_CSV = 2,
+            Formatter_FMT_PYTHON = 3,
+            Formatter_FMT_NUMPY = 4,
+            Formatter_FMT_C = 5;
+
+
+    // C++: enum Param
+    public static final int
+            Param_INT = 0,
+            Param_BOOLEAN = 1,
+            Param_REAL = 2,
+            Param_STRING = 3,
+            Param_MAT = 4,
+            Param_MAT_VECTOR = 5,
+            Param_ALGORITHM = 6,
+            Param_FLOAT = 7,
+            Param_UNSIGNED_INT = 8,
+            Param_UINT64 = 9,
+            Param_UCHAR = 11,
+            Param_SCALAR = 12;
 
 
     // C++: enum NormTypes
@@ -736,15 +723,6 @@ public class Core {
 
 
     //
-    // C++:  bool cv::ipp::useIPP_NE()
-    //
-
-    public static boolean useIPP_NE() {
-        return useIPP_NE_0();
-    }
-
-
-    //
     // C++:  bool cv::ipp::useIPP_NotExact()
     //
 
@@ -776,13 +754,14 @@ public class Core {
 
 
     //
-    // C++:  double cv::PSNR(Mat src1, Mat src2)
+    // C++:  double cv::PSNR(Mat src1, Mat src2, double R = 255.)
     //
 
     /**
      * Computes the Peak Signal-to-Noise Ratio (PSNR) image quality metric.
      * <p>
-     * This function calculates the Peak Signal-to-Noise Ratio (PSNR) image quality metric in decibels (dB), between two input arrays src1 and src2. Arrays must have depth CV_8U.
+     * This function calculates the Peak Signal-to-Noise Ratio (PSNR) image quality metric in decibels (dB),
+     * between two input arrays src1 and src2. The arrays must have the same type.
      * <p>
      * The PSNR is calculated as follows:
      * <p>
@@ -790,14 +769,39 @@ public class Core {
      * \texttt{PSNR} = 10 \cdot \log_{10}{\left( \frac{R^2}{MSE} \right) }
      * \)
      * <p>
-     * where R is the maximum integer value of depth CV_8U (255) and MSE is the mean squared error between the two arrays.
+     * where R is the maximum integer value of depth (e.g. 255 in the case of CV_8U data)
+     * and MSE is the mean squared error between the two arrays.
+     *
+     * @param src1 first input array.
+     * @param src2 second input array of the same size as src1.
+     * @param R    the maximum pixel value (255 by default)
+     * @return automatically generated
+     */
+    public static double PSNR(Mat src1, Mat src2, double R) {
+        return PSNR_0(src1.nativeObj, src2.nativeObj, R);
+    }
+
+    /**
+     * Computes the Peak Signal-to-Noise Ratio (PSNR) image quality metric.
+     * <p>
+     * This function calculates the Peak Signal-to-Noise Ratio (PSNR) image quality metric in decibels (dB),
+     * between two input arrays src1 and src2. The arrays must have the same type.
+     * <p>
+     * The PSNR is calculated as follows:
+     * <p>
+     * \(
+     * \texttt{PSNR} = 10 \cdot \log_{10}{\left( \frac{R^2}{MSE} \right) }
+     * \)
+     * <p>
+     * where R is the maximum integer value of depth (e.g. 255 in the case of CV_8U data)
+     * and MSE is the mean squared error between the two arrays.
      *
      * @param src1 first input array.
      * @param src2 second input array of the same size as src1.
      * @return automatically generated
      */
     public static double PSNR(Mat src1, Mat src2) {
-        return PSNR_0(src1.nativeObj, src2.nativeObj);
+        return PSNR_1(src1.nativeObj, src2.nativeObj);
     }
 
 
@@ -1570,7 +1574,30 @@ public class Core {
     // C++:  string cv::getCPUFeaturesLine()
     //
 
-    // Return type 'string' is not supported, skipping the function
+    /**
+     * Returns list of CPU features enabled during compilation.
+     * <p>
+     * Returned value is a string containing space separated list of CPU features with following markers:
+     *
+     * <ul>
+     *   <li>
+     *  no markers - baseline features
+     *   </li>
+     *   <li>
+     *  prefix {@code *} - features enabled in dispatcher
+     *   </li>
+     *   <li>
+     *  suffix {@code ?} - features enabled but not available in HW
+     *   </li>
+     * </ul>
+     * <p>
+     * Example: {@code SSE SSE2 SSE3 *SSE4.1 *SSE4.2 *FP16 *AVX *AVX2 *AVX512-SKX?}
+     *
+     * @return automatically generated
+     */
+    public static String getCPUFeaturesLine() {
+        return getCPUFeaturesLine_0();
+    }
 
 
     //
@@ -2799,6 +2826,26 @@ public class Core {
 
 
     //
+    // C++:  void cv::copyTo(Mat src, Mat& dst, Mat mask)
+    //
+
+    /**
+     * This is an overloaded member function, provided for convenience (python)
+     * Copies the matrix to another one.
+     * When the operation mask is specified, if the Mat::create call shown above reallocates the matrix, the newly allocated matrix is initialized with all zeros before copying the data.
+     *
+     * @param src  source matrix.
+     * @param dst  Destination matrix. If it does not have a proper size or type before the operation, it is
+     *             reallocated.
+     * @param mask Operation mask of the same size as \*this. Its non-zero elements indicate which matrix
+     *             elements need to be copied. The mask has to be of type CV_8U and can have 1 or multiple channels.
+     */
+    public static void copyTo(Mat src, Mat dst, Mat mask) {
+        copyTo_0(src.nativeObj, dst.nativeObj, mask.nativeObj);
+    }
+
+
+    //
     // C++:  void cv::dct(Mat src, Mat& dst, int flags = 0)
     //
 
@@ -3483,8 +3530,13 @@ public class Core {
      * or a scalar by an array when there is no src1 :
      * \(\texttt{dst(I) = saturate(scale/src2(I))}\)
      * <p>
-     * When src2(I) is zero, dst(I) will also be zero. Different channels of
-     * multi-channel arrays are processed independently.
+     * Different channels of multi-channel arrays are processed independently.
+     * <p>
+     * For integer types when src2(I) is zero, dst(I) will also be zero.
+     *
+     * <b>Note:</b> In case of floating point data there is no special defined behavior for zero src2(I) values.
+     * Regular floating-point division is used.
+     * Expect correct IEEE-754 behaviour for floating-point data (with NaN, Inf result values).
      *
      * <b>Note:</b> Saturation is not applied when the output array has the depth CV_32S. You may even get
      * result of an incorrect sign in the case of overflow.
@@ -3509,8 +3561,13 @@ public class Core {
      * or a scalar by an array when there is no src1 :
      * \(\texttt{dst(I) = saturate(scale/src2(I))}\)
      * <p>
-     * When src2(I) is zero, dst(I) will also be zero. Different channels of
-     * multi-channel arrays are processed independently.
+     * Different channels of multi-channel arrays are processed independently.
+     * <p>
+     * For integer types when src2(I) is zero, dst(I) will also be zero.
+     *
+     * <b>Note:</b> In case of floating point data there is no special defined behavior for zero src2(I) values.
+     * Regular floating-point division is used.
+     * Expect correct IEEE-754 behaviour for floating-point data (with NaN, Inf result values).
      *
      * <b>Note:</b> Saturation is not applied when the output array has the depth CV_32S. You may even get
      * result of an incorrect sign in the case of overflow.
@@ -3534,8 +3591,13 @@ public class Core {
      * or a scalar by an array when there is no src1 :
      * \(\texttt{dst(I) = saturate(scale/src2(I))}\)
      * <p>
-     * When src2(I) is zero, dst(I) will also be zero. Different channels of
-     * multi-channel arrays are processed independently.
+     * Different channels of multi-channel arrays are processed independently.
+     * <p>
+     * For integer types when src2(I) is zero, dst(I) will also be zero.
+     *
+     * <b>Note:</b> In case of floating point data there is no special defined behavior for zero src2(I) values.
+     * Regular floating-point division is used.
+     * Expect correct IEEE-754 behaviour for floating-point data (with NaN, Inf result values).
      *
      * <b>Note:</b> Saturation is not applied when the output array has the depth CV_32S. You may even get
      * result of an incorrect sign in the case of overflow.
@@ -3676,7 +3738,7 @@ public class Core {
      * Point pnt = locations[i];
      * </code>
      *
-     * @param src single-channel array (type CV_8UC1)
+     * @param src single-channel array
      * @param idx the output array, type of cv::Mat or std::vector&lt;Point&gt;, corresponding to non-zero indices in the input
      */
     public static void findNonZero(Mat src, Mat idx) {
@@ -4830,19 +4892,19 @@ public class Core {
     //
 
     /**
-     * converts NaNs to the given number
+     * converts NaN's to the given number
      *
-     * @param a   input/output matrix (CV_32F type).
-     * @param val value to convert the NaNs
+     * @param a   automatically generated
+     * @param val automatically generated
      */
     public static void patchNaNs(Mat a, double val) {
         patchNaNs_0(a.nativeObj, val);
     }
 
     /**
-     * converts NaNs to the given number
+     * converts NaN's to the given number
      *
-     * @param a input/output matrix (CV_32F type).
+     * @param a automatically generated
      */
     public static void patchNaNs(Mat a) {
         patchNaNs_1(a.nativeObj);
@@ -5711,15 +5773,6 @@ public class Core {
 
 
     //
-    // C++:  void cv::ipp::setUseIPP_NE(bool flag)
-    //
-
-    public static void setUseIPP_NE(boolean flag) {
-        setUseIPP_NE_0(flag);
-    }
-
-
-    //
     // C++:  void cv::ipp::setUseIPP_NotExact(bool flag)
     //
 
@@ -5862,17 +5915,16 @@ public class Core {
     // C++:  bool cv::ipp::useIPP()
     private static native boolean useIPP_0();
 
-    // C++:  bool cv::ipp::useIPP_NE()
-    private static native boolean useIPP_NE_0();
-
     // C++:  bool cv::ipp::useIPP_NotExact()
     private static native boolean useIPP_NotExact_0();
 
     // C++:  double cv::Mahalanobis(Mat v1, Mat v2, Mat icovar)
     private static native double Mahalanobis_0(long v1_nativeObj, long v2_nativeObj, long icovar_nativeObj);
 
-    // C++:  double cv::PSNR(Mat src1, Mat src2)
-    private static native double PSNR_0(long src1_nativeObj, long src2_nativeObj);
+    // C++:  double cv::PSNR(Mat src1, Mat src2, double R = 255.)
+    private static native double PSNR_0(long src1_nativeObj, long src2_nativeObj, double R);
+
+    private static native double PSNR_1(long src1_nativeObj, long src2_nativeObj);
 
     // C++:  double cv::determinant(Mat mtx)
     private static native double determinant_0(long mtx_nativeObj);
@@ -5950,6 +6002,9 @@ public class Core {
 
     // C++:  int64 cv::getTickCount()
     private static native long getTickCount_0();
+
+    // C++:  string cv::getCPUFeaturesLine()
+    private static native String getCPUFeaturesLine_0();
 
     // C++:  void cv::LUT(Mat src, Mat lut, Mat& dst)
     private static native void LUT_0(long src_nativeObj, long lut_nativeObj, long dst_nativeObj);
@@ -6077,6 +6132,9 @@ public class Core {
     private static native void copyMakeBorder_0(long src_nativeObj, long dst_nativeObj, int top, int bottom, int left, int right, int borderType, double value_val0, double value_val1, double value_val2, double value_val3);
 
     private static native void copyMakeBorder_1(long src_nativeObj, long dst_nativeObj, int top, int bottom, int left, int right, int borderType);
+
+    // C++:  void cv::copyTo(Mat src, Mat& dst, Mat mask)
+    private static native void copyTo_0(long src_nativeObj, long dst_nativeObj, long mask_nativeObj);
 
     // C++:  void cv::dct(Mat src, Mat& dst, int flags = 0)
     private static native void dct_0(long src_nativeObj, long dst_nativeObj, int flags);
@@ -6317,9 +6375,6 @@ public class Core {
 
     // C++:  void cv::ipp::setUseIPP(bool flag)
     private static native void setUseIPP_0(boolean flag);
-
-    // C++:  void cv::ipp::setUseIPP_NE(bool flag)
-    private static native void setUseIPP_NE_0(boolean flag);
 
     // C++:  void cv::ipp::setUseIPP_NotExact(bool flag)
     private static native void setUseIPP_NotExact_0(boolean flag);
