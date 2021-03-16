@@ -1,0 +1,277 @@
+//
+// This file is auto-generated. Please don't modify it!
+//
+package org.opencv.features2d;
+
+import org.opencv.core.MatOfFloat;
+import org.opencv.core.MatOfInt;
+
+// C++: class BRISK
+
+/**
+ * Class implementing the BRISK keypoint detector and descriptor extractor, described in CITE: LCS11 .
+ */
+@SuppressWarnings("unused")
+public class BRISK extends Feature2D {
+
+    protected BRISK(long addr) {
+        super(addr);
+    }
+
+    // internal usage only
+    public static BRISK __fromPtr__(long addr) {
+        return new BRISK(addr);
+    }
+
+    //
+    // C++: static Ptr_BRISK cv::BRISK::create(int thresh, int octaves, vector_float radiusList, vector_int numberList, float dMax = 5.85f, float dMin = 8.2f, vector_int indexChange = std::vector<int>())
+    //
+
+    /**
+     * The BRISK constructor for a custom pattern, detection threshold and octaves
+     *
+     * @param thresh      AGAST detection threshold score.
+     * @param octaves     detection octaves. Use 0 to do single scale.
+     * @param radiusList  defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                    keypoint scale 1).
+     * @param numberList  defines the number of sampling points on the sampling circle. Must be the same
+     *                    size as radiusList..
+     * @param dMax        threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                    scale 1).
+     * @param dMin        threshold for the long pairings used for orientation determination (in pixels for
+     *                    keypoint scale 1).
+     * @param indexChange index remapping of the bits.
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves, MatOfFloat radiusList, MatOfInt numberList, float dMax, float dMin, MatOfInt indexChange) {
+        return BRISK.__fromPtr__(create_0(thresh, octaves, radiusList.nativeObj, numberList.nativeObj, dMax, dMin, indexChange.nativeObj));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern, detection threshold and octaves
+     *
+     * @param thresh     AGAST detection threshold score.
+     * @param octaves    detection octaves. Use 0 to do single scale.
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     * @param dMax       threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                   scale 1).
+     * @param dMin       threshold for the long pairings used for orientation determination (in pixels for
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves, MatOfFloat radiusList, MatOfInt numberList, float dMax, float dMin) {
+        return BRISK.__fromPtr__(create_1(thresh, octaves, radiusList.nativeObj, numberList.nativeObj, dMax, dMin));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern, detection threshold and octaves
+     *
+     * @param thresh     AGAST detection threshold score.
+     * @param octaves    detection octaves. Use 0 to do single scale.
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     * @param dMax       threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                   scale 1).
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves, MatOfFloat radiusList, MatOfInt numberList, float dMax) {
+        return BRISK.__fromPtr__(create_2(thresh, octaves, radiusList.nativeObj, numberList.nativeObj, dMax));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern, detection threshold and octaves
+     *
+     * @param thresh     AGAST detection threshold score.
+     * @param octaves    detection octaves. Use 0 to do single scale.
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     *                   scale 1).
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves, MatOfFloat radiusList, MatOfInt numberList) {
+        return BRISK.__fromPtr__(create_3(thresh, octaves, radiusList.nativeObj, numberList.nativeObj));
+    }
+
+
+    //
+    // C++: static Ptr_BRISK cv::BRISK::create(int thresh = 30, int octaves = 3, float patternScale = 1.0f)
+    //
+
+    /**
+     * The BRISK constructor
+     *
+     * @param thresh       AGAST detection threshold score.
+     * @param octaves      detection octaves. Use 0 to do single scale.
+     * @param patternScale apply this scale to the pattern used for sampling the neighbourhood of a
+     *                     keypoint.
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves, float patternScale) {
+        return BRISK.__fromPtr__(create_4(thresh, octaves, patternScale));
+    }
+
+    /**
+     * The BRISK constructor
+     *
+     * @param thresh  AGAST detection threshold score.
+     * @param octaves detection octaves. Use 0 to do single scale.
+     *                keypoint.
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh, int octaves) {
+        return BRISK.__fromPtr__(create_5(thresh, octaves));
+    }
+
+    /**
+     * The BRISK constructor
+     *
+     * @param thresh AGAST detection threshold score.
+     *               keypoint.
+     * @return automatically generated
+     */
+    public static BRISK create(int thresh) {
+        return BRISK.__fromPtr__(create_6(thresh));
+    }
+
+    /**
+     * The BRISK constructor
+     * <p>
+     * keypoint.
+     *
+     * @return automatically generated
+     */
+    public static BRISK create() {
+        return BRISK.__fromPtr__(create_7());
+    }
+
+
+    //
+    // C++: static Ptr_BRISK cv::BRISK::create(vector_float radiusList, vector_int numberList, float dMax = 5.85f, float dMin = 8.2f, vector_int indexChange = std::vector<int>())
+    //
+
+    /**
+     * The BRISK constructor for a custom pattern
+     *
+     * @param radiusList  defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                    keypoint scale 1).
+     * @param numberList  defines the number of sampling points on the sampling circle. Must be the same
+     *                    size as radiusList..
+     * @param dMax        threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                    scale 1).
+     * @param dMin        threshold for the long pairings used for orientation determination (in pixels for
+     *                    keypoint scale 1).
+     * @param indexChange index remapping of the bits.
+     * @return automatically generated
+     */
+    public static BRISK create(MatOfFloat radiusList, MatOfInt numberList, float dMax, float dMin, MatOfInt indexChange) {
+        return BRISK.__fromPtr__(create_8(radiusList.nativeObj, numberList.nativeObj, dMax, dMin, indexChange.nativeObj));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern
+     *
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     * @param dMax       threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                   scale 1).
+     * @param dMin       threshold for the long pairings used for orientation determination (in pixels for
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(MatOfFloat radiusList, MatOfInt numberList, float dMax, float dMin) {
+        return BRISK.__fromPtr__(create_9(radiusList.nativeObj, numberList.nativeObj, dMax, dMin));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern
+     *
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     * @param dMax       threshold for the short pairings used for descriptor formation (in pixels for keypoint
+     *                   scale 1).
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(MatOfFloat radiusList, MatOfInt numberList, float dMax) {
+        return BRISK.__fromPtr__(create_10(radiusList.nativeObj, numberList.nativeObj, dMax));
+    }
+
+    /**
+     * The BRISK constructor for a custom pattern
+     *
+     * @param radiusList defines the radii (in pixels) where the samples around a keypoint are taken (for
+     *                   keypoint scale 1).
+     * @param numberList defines the number of sampling points on the sampling circle. Must be the same
+     *                   size as radiusList..
+     *                   scale 1).
+     *                   keypoint scale 1).
+     * @return automatically generated
+     */
+    public static BRISK create(MatOfFloat radiusList, MatOfInt numberList) {
+        return BRISK.__fromPtr__(create_11(radiusList.nativeObj, numberList.nativeObj));
+    }
+
+
+    //
+    // C++:  String cv::BRISK::getDefaultName()
+    //
+
+    @Override
+    public String getDefaultName() {
+        return getDefaultName_0(nativeObj);
+    }
+
+
+    @Override
+    protected void finalize() throws Throwable {
+        delete(nativeObj);
+    }
+
+
+    // C++: static Ptr_BRISK cv::BRISK::create(int thresh, int octaves, vector_float radiusList, vector_int numberList, float dMax = 5.85f, float dMin = 8.2f, vector_int indexChange = std::vector<int>())
+    private static native long create_0(int thresh, int octaves, long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax, float dMin, long indexChange_mat_nativeObj);
+
+    private static native long create_1(int thresh, int octaves, long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax, float dMin);
+
+    private static native long create_2(int thresh, int octaves, long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax);
+
+    private static native long create_3(int thresh, int octaves, long radiusList_mat_nativeObj, long numberList_mat_nativeObj);
+
+    // C++: static Ptr_BRISK cv::BRISK::create(int thresh = 30, int octaves = 3, float patternScale = 1.0f)
+    private static native long create_4(int thresh, int octaves, float patternScale);
+
+    private static native long create_5(int thresh, int octaves);
+
+    private static native long create_6(int thresh);
+
+    private static native long create_7();
+
+    // C++: static Ptr_BRISK cv::BRISK::create(vector_float radiusList, vector_int numberList, float dMax = 5.85f, float dMin = 8.2f, vector_int indexChange = std::vector<int>())
+    private static native long create_8(long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax, float dMin, long indexChange_mat_nativeObj);
+
+    private static native long create_9(long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax, float dMin);
+
+    private static native long create_10(long radiusList_mat_nativeObj, long numberList_mat_nativeObj, float dMax);
+
+    private static native long create_11(long radiusList_mat_nativeObj, long numberList_mat_nativeObj);
+
+    // C++:  String cv::BRISK::getDefaultName()
+    private static native String getDefaultName_0(long nativeObj);
+
+    // native support for java finalize()
+    private static native void delete(long nativeObj);
+
+}
