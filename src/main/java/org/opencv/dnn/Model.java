@@ -31,9 +31,7 @@ public class Model extends Net {
         return new Model(addr);
     }
 
-    //
     // C++:   cv::dnn::Model::Model(Net network)
-    //
 
     /**
      * Create model from deep learning network.
@@ -45,9 +43,7 @@ public class Model extends Net {
     }
 
 
-    //
     // C++:   cv::dnn::Model::Model(String model, String config = "")
-    //
 
     /**
      * Create model from deep learning network represented in one of the supported formats.
@@ -70,10 +66,7 @@ public class Model extends Net {
         super(Model_2(model));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputCrop(bool crop)
-    //
 
     /**
      * Set flag crop for frame.
@@ -85,10 +78,7 @@ public class Model extends Net {
         return new Model(setInputCrop_0(nativeObj, crop));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputMean(Scalar mean)
-    //
 
     /**
      * Set mean value for frame.
@@ -100,10 +90,7 @@ public class Model extends Net {
         return new Model(setInputMean_0(nativeObj, mean.val[0], mean.val[1], mean.val[2], mean.val[3]));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputScale(double scale)
-    //
 
     /**
      * Set scalefactor value for frame.
@@ -115,10 +102,7 @@ public class Model extends Net {
         return new Model(setInputScale_0(nativeObj, scale));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputSize(Size size)
-    //
 
     /**
      * Set input size for frame.
@@ -131,10 +115,7 @@ public class Model extends Net {
         return new Model(setInputSize_0(nativeObj, size.width, size.height));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputSize(int width, int height)
-    //
 
     /**
      * Set input size for frame.
@@ -149,10 +130,7 @@ public class Model extends Net {
         return new Model(setInputSize_1(nativeObj, width, height));
     }
 
-
-    //
     // C++:  Model cv::dnn::Model::setInputSwapRB(bool swapRB)
-    //
 
     /**
      * Set flag swapRB for frame.
@@ -164,10 +142,7 @@ public class Model extends Net {
         return new Model(setInputSwapRB_0(nativeObj, swapRB));
     }
 
-
-    //
     // C++:  void cv::dnn::Model::predict(Mat frame, vector_Mat& outs)
-    //
 
     /**
      * Given the {@code input} frame, create input blob, run net and return the output {@code blobs}.
@@ -182,10 +157,7 @@ public class Model extends Net {
         outs_mat.release();
     }
 
-
-    //
     // C++:  void cv::dnn::Model::setInputParams(double scale = 1.0, Size size = Size(), Scalar mean = Scalar(), bool swapRB = false, bool crop = false)
-    //
 
     /**
      * Set preprocessing parameters for frame.

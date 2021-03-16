@@ -63,10 +63,7 @@ public class AgastFeatureDetector extends Feature2D {
         return AgastFeatureDetector.__fromPtr__(create_3());
     }
 
-
-    //
     // C++:  String cv::AgastFeatureDetector::getDefaultName()
-    //
 
     @Override
     public String getDefaultName() {

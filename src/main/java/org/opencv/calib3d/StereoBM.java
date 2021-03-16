@@ -238,7 +238,6 @@ public class StereoBM extends StereoMatcher {
         delete(nativeObj);
     }
 
-
     // C++: static Ptr_StereoBM cv::StereoBM::create(int numDisparities = 0, int blockSize = 21)
     private static native long create_0(int numDisparities, int blockSize);
 

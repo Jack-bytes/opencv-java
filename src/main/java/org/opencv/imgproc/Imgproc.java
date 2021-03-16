@@ -18,13 +18,10 @@ import org.opencv.core.RotatedRect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.core.TermCriteria;
-import org.opencv.imgproc.CLAHE;
-import org.opencv.imgproc.GeneralizedHoughBallard;
-import org.opencv.imgproc.GeneralizedHoughGuil;
-import org.opencv.imgproc.LineSegmentDetector;
 import org.opencv.utils.Converters;
 
 // C++: class Imgproc
+@SuppressWarnings("unused")
 public class Imgproc {
 
     private static final int
@@ -190,6 +187,7 @@ public class Imgproc {
             INTER_AREA = 3,
             INTER_LANCZOS4 = 4,
             INTER_LINEAR_EXACT = 5,
+            INTER_NEAREST_EXACT = 6,
             INTER_MAX = 7,
             WARP_FILL_OUTLIERS = 8,
             WARP_INVERSE_MAP = 16;
@@ -1930,7 +1928,7 @@ public class Imgproc {
      * represents the background label. ltype specifies the output label image type, an important
      * consideration based on the total number of labels or alternatively the total number of pixels in
      * the source image. ccltype specifies the connected components labeling algorithm to use, currently
-     * Grana (BBDT) and Wu's (SAUF) algorithms are supported, see the #ConnectedComponentsAlgorithmsTypes
+     * Grana (BBDT) and Wu's (SAUF) CITE: Wu2009 algorithms are supported, see the #ConnectedComponentsAlgorithmsTypes
      * for details. Note that SAUF algorithm forces a row major ordering of labels while BBDT does not.
      * This function uses parallel version of both Grana and Wu's algorithms if at least one allowed
      * parallel framework is enabled and if the rows of the image are at least twice the number returned by #getNumberOfCPUs.
@@ -1993,7 +1991,7 @@ public class Imgproc {
      * represents the background label. ltype specifies the output label image type, an important
      * consideration based on the total number of labels or alternatively the total number of pixels in
      * the source image. ccltype specifies the connected components labeling algorithm to use, currently
-     * Grana's (BBDT) and Wu's (SAUF) algorithms are supported, see the #ConnectedComponentsAlgorithmsTypes
+     * Grana's (BBDT) and Wu's (SAUF) CITE: Wu2009 algorithms are supported, see the #ConnectedComponentsAlgorithmsTypes
      * for details. Note that SAUF algorithm forces a row major ordering of labels while BBDT does not.
      * This function uses parallel version of both Grana and Wu's algorithms (statistics included) if at least one allowed
      * parallel framework is enabled and if the rows of the image are at least twice the number returned by #getNumberOfCPUs.
@@ -4926,8 +4924,8 @@ public class Imgproc {
     /**
      * Refines the corner locations.
      * <p>
-     * The function iterates to find the sub-pixel accurate location of corners or radial saddle points, as
-     * shown on the figure below.
+     * The function iterates to find the sub-pixel accurate location of corners or radial saddle
+     * points as described in CITE: forstner1987fast, and as shown on the figure below.
      * <p>
      * ![image](pics/cornersubpix.png)
      * <p>

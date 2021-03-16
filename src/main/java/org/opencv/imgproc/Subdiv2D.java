@@ -488,12 +488,10 @@ public class Subdiv2D {
         insert_1(nativeObj, ptvec.nativeObj);
     }
 
-
     @Override
     protected void finalize() throws Throwable {
         delete(nativeObj);
     }
-
 
     // C++:   cv::Subdiv2D::Subdiv2D(Rect rect)
     private static native long Subdiv2D_0(int rect_x, int rect_y, int rect_width, int rect_height);

@@ -747,7 +747,7 @@ public class Mat {
     // javadoc:Mat::toString()
     @Override
     public String toString() {
-        StringBuilder _dims = new StringBuilder((dims() > 0) ? "" : "-1*-1*");
+        StringBuilder _dims = new StringBuilder(dims() > 0 ? "" : "-1*-1*");
         for (int i = 0; i < dims(); i++) {
             _dims.append(size(i)).append("*");
         }

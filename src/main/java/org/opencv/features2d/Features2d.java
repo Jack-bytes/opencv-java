@@ -255,7 +255,6 @@ public class Features2d {
         drawMatchesKnn_4(img1.nativeObj, keypoints1.nativeObj, img2.nativeObj, keypoints2.nativeObj, matches1to2_mat.nativeObj, outImg.nativeObj);
     }
 
-
     // C++:  void cv::drawKeypoints(Mat image, vector_KeyPoint keypoints, Mat& outImage, Scalar color = Scalar::all(-1), DrawMatchesFlags flags = DrawMatchesFlags::DEFAULT)
     private static native void drawKeypoints_0(long image_nativeObj, long keypoints_mat_nativeObj, long outImage_nativeObj, double color_val0, double color_val1, double color_val2, double color_val3, int flags);
 

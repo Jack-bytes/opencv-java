@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * This class was designed for use in Java applications
  * to recreate the OpenCV HighGui functionalities.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public final class HighGui {
 
     // Constants for namedWindow
@@ -82,9 +82,7 @@ public final class HighGui {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 n_closed_windows++;
-                if (n_closed_windows == windows.size()) {
-                    latch.countDown();
-                }
+                if (n_closed_windows == windows.size()) latch.countDown();
             }
         });
 
@@ -104,9 +102,7 @@ public final class HighGui {
             }
         });
 
-        if (flag == WINDOW_AUTOSIZE) {
-            frame.setResizable(false);
-        }
+        if (flag == WINDOW_AUTOSIZE) frame.setResizable(false);
 
         return frame;
     }
@@ -171,18 +167,15 @@ public final class HighGui {
         }
 
         // Set all windows as already used
-        for (ImageWindow win : windows.values()) {
+        for (ImageWindow win : windows.values())
             win.alreadyUsed = true;
-        }
 
         return pressedKey;
     }
 
     public static void destroyWindow(String winname) {
         ImageWindow tmpWin = windows.get(winname);
-        if (tmpWin != null) {
-            windows.remove(winname);
-        }
+        if (tmpWin != null) windows.remove(winname);
     }
 
     public static void destroyAllWindows() {
@@ -191,15 +184,11 @@ public final class HighGui {
 
     public static void resizeWindow(String winname, int width, int height) {
         ImageWindow tmpWin = windows.get(winname);
-        if (tmpWin != null) {
-            tmpWin.setNewDimension(width, height);
-        }
+        if (tmpWin != null) tmpWin.setNewDimension(width, height);
     }
 
     public static void moveWindow(String winname, int x, int y) {
         ImageWindow tmpWin = windows.get(winname);
-        if (tmpWin != null) {
-            tmpWin.setNewPosition(x, y);
-        }
+        if (tmpWin != null) tmpWin.setNewPosition(x, y);
     }
 }

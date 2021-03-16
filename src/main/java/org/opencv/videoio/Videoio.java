@@ -5,7 +5,7 @@ package org.opencv.videoio;
 
 
 // C++: class Videoio
-
+@SuppressWarnings("unused")
 public class Videoio {
 
     // C++: enum VideoWriterProperties
@@ -64,7 +64,9 @@ public class Videoio {
             CAP_PROP_AUTO_WB = 44,
             CAP_PROP_WB_TEMPERATURE = 45,
             CAP_PROP_CODEC_PIXEL_FORMAT = 46,
-            CAP_PROP_BITRATE = 47;
+            CAP_PROP_BITRATE = 47,
+            CAP_PROP_ORIENTATION_META = 48,
+            CAP_PROP_ORIENTATION_AUTO = 49;
 
 
     // C++: enum VideoCaptureAPIs

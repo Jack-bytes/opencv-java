@@ -10,13 +10,14 @@ import org.opencv.utils.Converters;
 // C++: class Core
 @SuppressWarnings("unused")
 public class Core {
+
     // these constants are wrapped inside functions to prevent inlining
     private static String getVersion() {
-        return "4.4.0";
+        return "4.5.0";
     }
 
     private static String getNativeLibraryName() {
-        return "opencv_java440";
+        return "opencv_java450";
     }
 
     private static int getVersionMajorJ() {
@@ -24,7 +25,7 @@ public class Core {
     }
 
     private static int getVersionMinorJ() {
-        return 4;
+        return 5;
     }
 
     private static int getVersionRevisionJ() {
@@ -2080,7 +2081,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1       automatically generated
      * @param src2       automatically generated
@@ -2101,7 +2101,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1     automatically generated
      * @param src2     automatically generated
@@ -2121,7 +2120,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1     automatically generated
      * @param src2     automatically generated
@@ -2140,7 +2138,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1     automatically generated
      * @param src2     automatically generated
@@ -2158,7 +2155,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1     automatically generated
      * @param src2     automatically generated
@@ -2175,7 +2171,6 @@ public class Core {
      * naive nearest neighbor finder
      * <p>
      * see http://en.wikipedia.org/wiki/Nearest_neighbor_search
-     * TODO: document
      *
      * @param src1  automatically generated
      * @param src2  automatically generated
@@ -4892,19 +4887,19 @@ public class Core {
     //
 
     /**
-     * converts NaN's to the given number
+     * converts NaNs to the given number
      *
-     * @param a   automatically generated
-     * @param val automatically generated
+     * @param a   input/output matrix (CV_32F type).
+     * @param val value to convert the NaNs
      */
     public static void patchNaNs(Mat a, double val) {
         patchNaNs_0(a.nativeObj, val);
     }
 
     /**
-     * converts NaN's to the given number
+     * converts NaNs to the given number
      *
-     * @param a automatically generated
+     * @param a input/output matrix (CV_32F type).
      */
     public static void patchNaNs(Mat a) {
         patchNaNs_1(a.nativeObj);

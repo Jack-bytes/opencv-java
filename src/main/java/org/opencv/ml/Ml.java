@@ -3,6 +3,7 @@
 //
 package org.opencv.ml;
 
+
 // C++: class Ml
 @SuppressWarnings("unused")
 public class Ml {

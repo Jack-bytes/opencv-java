@@ -941,7 +941,6 @@ public class Dnn {
         NMSBoxesRotated_2(bboxes.nativeObj, scores.nativeObj, score_threshold, nms_threshold, indices.nativeObj);
     }
 
-
     //
     // C++:  void cv::dnn::imagesFromBlob(Mat blob_, vector_Mat& images_)
     //

@@ -216,6 +216,7 @@ public class Feature2D extends Algorithm {
         detectAndCompute_1(nativeObj, image.nativeObj, mask.nativeObj, keypoints.nativeObj, descriptors.nativeObj);
     }
 
+
     //
     // C++:  void cv::Feature2D::read(FileNode arg1)
     //
